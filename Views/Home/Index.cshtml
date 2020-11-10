@@ -1,0 +1,16 @@
+﻿@model System.Security.Claims.ClaimsPrincipal
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h1>Welcome</h1>
+    <dl>
+        @foreach (var claim in Model.Claims)
+        {
+            <dt><b>@claim.Type</b></dt>
+            <dd><i>@claim.Value</i></dd>
+        }
+    </dl>
+</body>
+</html>

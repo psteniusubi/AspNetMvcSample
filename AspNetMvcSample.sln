@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcSample", "AspNetMvcSample.csproj", "{5A71AB82-4465-4D30-A5D3-ED78FC19522D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A71AB82-4465-4D30-A5D3-ED78FC19522D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A71AB82-4465-4D30-A5D3-ED78FC19522D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A71AB82-4465-4D30-A5D3-ED78FC19522D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A71AB82-4465-4D30-A5D3-ED78FC19522D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F772FE53-12AF-4E48-90AB-6A8355E51E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F772FE53-12AF-4E48-90AB-6A8355E51E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F772FE53-12AF-4E48-90AB-6A8355E51E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F772FE53-12AF-4E48-90AB-6A8355E51E34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8381CE7-23C2-461C-96E3-3A0B1BB3B759}
+	EndGlobalSection
+EndGlobal

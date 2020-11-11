@@ -27,3 +27,10 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Petteri - MSDN'
+    appType: 'webApp'
+    WebAppName: 'ubi-aspnet-mvc-sample'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

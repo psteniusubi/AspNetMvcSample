@@ -24,17 +24,10 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:DeployOnBuild=false /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    msbuildArchitecture: 'x64'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -42,4 +35,4 @@ steps:
     azureSubscription: 'Petteri - MSDN'
     appType: 'webApp'
     WebAppName: 'ubi-aspnet-mvc-sample'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'

@@ -19,23 +19,31 @@ namespace AspNetMvcSample
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
-            app.UseOpenIdConnectAuthentication(
-                new OpenIdConnectAuthenticationOptions
+            var redirectUri = new Uri(ConfigurationManager.AppSettings.Get("redirect_uri"));
+            var openIdConnectOptions = new OpenIdConnectAuthenticationOptions
+            {
+                Authority = ConfigurationManager.AppSettings.Get("issuer"),
+                ClientId = ConfigurationManager.AppSettings.Get("client_id"),
+                ClientSecret = ConfigurationManager.AppSettings.Get("client_secret"),
+                ResponseType = "code", // authorization code flow
+                ResponseMode = null, // leave undefined, defaults to query
+                Scope = "openid", // enables openid connect
+                RedirectUri = redirectUri.OriginalString,
+                RedeemCode = true, // authorization code flow
+            };
+
+            // the following is a workaround for https://github.com/aspnet/AspNetKatana/issues/386
+            // make sure to only enable when running on localhost without https
+            if (!"https".Equals(redirectUri.Scheme) && redirectUri.IsLoopback)
+            {
+                openIdConnectOptions.ProtocolValidator = new OpenIdConnectProtocolValidator
                 {
-                    Authority = ConfigurationManager.AppSettings.Get("issuer"),
-                    ClientId = ConfigurationManager.AppSettings.Get("client_id"),
-                    ClientSecret = ConfigurationManager.AppSettings.Get("client_secret"),
-                    ResponseType = "code", // authorization code flow
-                    ResponseMode = null, // leave undefined, defaults to query
-                    Scope = "openid", // enables openid connect
-                    RedirectUri = ConfigurationManager.AppSettings.Get("redirect_uri"),
-                    RedeemCode = true, // authorization code flow
-                    ProtocolValidator = new OpenIdConnectProtocolValidator
-                    {
-                        RequireStateValidation = false, // TODO: check why this is needed
-                        RequireNonce = false, // TODO: check why this is needed
-                    }
-                });
+                    RequireStateValidation = false,
+                    RequireNonce = false,
+                };
+            }
+
+            app.UseOpenIdConnectAuthentication(openIdConnectOptions);
         }
     }
 }

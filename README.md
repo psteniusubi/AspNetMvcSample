@@ -32,7 +32,7 @@ Next code sets up the OpenID Connect middleware. I'm reading settings from `web.
 
 * `ResponseType = "code"` lets me use Authorization Code Flow
 * `ResponseMode = null` defaults to query, which tells provider to use HTTP GET method when redirecting back
-* `Scope = "openid"` enables OpenID Connect
+* `Scope = "openid"` enables OpenID Connect. Add more scope values if you need access to more services
 * `RedeemCode = true` makes sure OpenID Connect middleware performs Authorization Code Flow
 
 ```c#
@@ -52,7 +52,7 @@ Next code sets up the OpenID Connect middleware. I'm reading settings from `web.
 
 The following is a workaround for https://github.com/aspnet/AspNetKatana/issues/386. Please remove if your app is always deployed to encrypted https host, as this issue only occurs when running on plain http host. 
 
-The Visual Studio project of this sample app is setup to run on http://localhost:52834/ which is fine for a development experience.
+The Visual Studio project of this sample app is setup to run on http://localhost:52834/ which is fine for a development experience but needs this workaround.
 
 ```c#
             // the following is a workaround for https://github.com/aspnet/AspNetKatana/issues/386

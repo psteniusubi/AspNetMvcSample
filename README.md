@@ -116,3 +116,5 @@ The following generates a simple html list showing all [claims](https://docs.mic
 Load the project into Visual Studio 2019 and run. The `web.config` file is ready configured to access Ubisecure SSO at https://login.example.ubidemo.com/uas.
 
 This app is also deployed live on https://ubi-aspnet-mvc-sample.azurewebsites.net.
+
+Login with your Email, Google, Facebook or Microsoft account.

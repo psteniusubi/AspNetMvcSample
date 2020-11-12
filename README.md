@@ -2,7 +2,7 @@
 
 ## Configuration
 
-An OpenID Connect Client needs to be configured with information about the OpenID Connect Provider and client credentials. This sample app puts these configuration items into `web.config` file as AppSettings keys:
+An OpenID Connect Client needs to be configured with information about the OpenID Connect Provider and client credentials. This sample app puts these configuration items into [web.config](Web.config) file as AppSettings keys:
 
 * `issuer` - name of OpenID Connect Provider
 * `client_id` and `client_secret` - client credentials registered with OpenID Connect Provider 

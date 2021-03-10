@@ -32,7 +32,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Petteri - MSDN'
+    azureSubscription: 'Petteri - MSDN (f70471bf-4538-41e6-a84c-679ec53940ef)'
     appType: 'webApp'
     WebAppName: 'ubi-aspnet-mvc-sample'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'

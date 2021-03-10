@@ -1,5 +1,11 @@
 # ASP.NET MVC and Ubisecure SSO integration with OpenID Connect
 
+## Introduction
+
+This is a sample ASP.NET MVC application to illustrate integration with OpenID Connect Auhthorization Code flow.
+
+The [AspNetCoreSample](../../../AspNetCoreSample) project has a version for ASP.NET Core.
+
 ## Configuration
 
 An OpenID Connect Client needs to be configured with information about the OpenID Connect Provider and client credentials. This sample app puts these configuration items into [web.config](Web.config) file as AppSettings keys:

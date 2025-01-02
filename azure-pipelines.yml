@@ -16,12 +16,15 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+  displayName: 'Install'
 
 - task: NuGetCommand@2
+  displayName: 'Restore'
   inputs:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
+  displayName: 'Build'
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
@@ -30,6 +33,7 @@ steps:
     msbuildArchitecture: 'x64'
 
 - task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy'
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure DevOps'

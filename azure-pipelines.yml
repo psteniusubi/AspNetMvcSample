@@ -32,7 +32,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Petteri - Visual Studio 2020(8945690f-dfba-4ea2-a0fa-7bb9fc3e1e1c)'
+    azureSubscription: 'Azure DevOps'
     appType: 'webApp'
     WebAppName: 'ubi-aspnet-mvc-sample'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'
